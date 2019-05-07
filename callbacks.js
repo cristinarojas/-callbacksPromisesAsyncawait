@@ -2,11 +2,14 @@
 
 // callback = una funcion que sera ejecutada despues que otra funcion halla sido ejecutada.
 // Callback = a function that is to be executed after another function has finished executing
+
+// Array with data
 const posts = [
   { title: 'Post One', body: 'This is post one'},
   { title: 'Post Two', body: 'This is post Two'}
 ];
 
+// This function is first executed because the timer
 function getPosts() {
   setTimeout(() => {
     let output = '';
@@ -26,10 +29,12 @@ function createPost(post) {
   }, 2000);
 }
 
-getPosts();
 
-// when I execute this function this take longer time.
-// And the DOM is already painted with getPosts in 1 sec.
+
+// when I execute createPost function this take longer time.
+// And the DOM is already painted with getPosts function in 1 sec.
 createPost({title: 'Post three', body: 'boy three'});
+
+getPosts();
 
 // See solution with callback2.js
