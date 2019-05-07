@@ -1,7 +1,5 @@
 // JavaScript is always synchronous and single-threaded.
-// Promise = represents the eventual result of an asynchronous operation.
-// It is a placeholder into which the successful result value
-// or reason for failure will materialize.
+// Async await = There’s a special syntax to work with promises in a more comfortable fashion
 
 // Array with data
 const posts = [
@@ -22,17 +20,12 @@ function getPosts() {
 }
 
 function createPost(post) {
-  // resolve - succefull
-  // reject - some error
   return new Promise((resolve, reject)=> {
     setTimeout(() => {
-      // 1 First is going to execute createPost code.
       posts.push(post);
 
       const error = false;
 
-      // 2 As soon is resolve - not errors
-      // Then will execute resolve
       if (!error) {
         resolve();
       } else {
@@ -42,9 +35,14 @@ function createPost(post) {
   });
 }
 
-createPost({ title: 'Post three', body: 'This is post three'})
-  .then(getPosts) // 3 If not errors then will execute the getPosts function.
-  .catch(err => console.log(err)); // We can insert cath to see the error more cleaning in console.
+// async - asynchronus process
+// await - await to the Asynchronus process to complete
+async function init() {
+  // I waiting to createPost done their functionality
+  await createPost({title: 'Post three', body: 'boy three'});
 
+  // and then executing getPosts
+  getPosts();
+}
 
-// See asyncAwait file other way to hanlde promises.
+init(); // Is the elegant way to create promises.
