@@ -15,5 +15,5 @@ const promise4 = fetch
 
 // Take an array of promises results (resolve) and insert into an array
 Promise.all([promise1, promise2, promise3, promise4]).then((values) => {
-  console.log(values);
+  console.log(values); //  ["Hello world", 10, "Bye!", Array(10)]
 });
